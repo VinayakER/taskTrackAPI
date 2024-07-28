@@ -10,7 +10,7 @@ class User(Base):
     hashed_password = Column(String)
     is_active = Column(Boolean, default=True)
     is_admin = Column(Boolean, default=False)
-    
+    role = Column(String, index=True)  # Add role field
     projects = relationship("Project", back_populates="owner")
 
 class Project(Base):
